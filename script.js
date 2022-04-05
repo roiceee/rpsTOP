@@ -6,17 +6,19 @@ function showBotChoice(botChoice) {
     })
     const img = document.createElement('img');
     img.setAttribute('class', 'image');
-    img.setAttribute('style', "height:200px; width:200px");
-    setTimeout(()=> {
-        switch(botChoice) {
-            case 1: img.src = "RPS_resources/rock-bot.jpg";
-            break;
-            case 2: img.src = "RPS_resources/paper-bot.jpg";
-            break;
-            case 3: img.src = "RPS_resources/scissors-bot.jpg";
-            break;
-        }
-        }, 500);
+    img.setAttribute('style', 'display: none');
+   setTimeout (() => {
+    img.setAttribute('style', 'display: block');
+   },250) 
+   switch(botChoice) {
+    case 1: img.src = "RPS_resources/rock-bot.jpg";
+    break;
+    case 2: img.src = "RPS_resources/paper-bot.jpg";
+    break;
+    case 3: img.src = "RPS_resources/scissors-bot.jpg";
+    break;
+}
+        
     
     container.append(img);
 }
@@ -27,18 +29,20 @@ function showPlayerChoice(playerChoice) {
     const container = document.querySelector('.choice-holder-1');
     const img = document.createElement('img');
     img.setAttribute('class', 'image');
-    img.setAttribute('style', "height:200px; width:200px");
+    img.setAttribute('style', 'display: none');
+
     setTimeout(()=> {
-        switch(playerChoice) {
-            case 1: img.src = "RPS_resources/rock-man.jpg";
-            break;
-            case 2: img.src = "RPS_resources/paper-man.jpg";
-            break;
-            case 3: img.src = "RPS_resources/scissors-man.jpg";
-            break;
-        }
-    }, 500);
-   
+        img.setAttribute('style', 'display: block');
+    }, 250);
+    switch(playerChoice) {
+        case 1: img.src = "RPS_resources/rock-man.jpg";
+        break;
+        case 2: img.src = "RPS_resources/paper-man.jpg";
+        break;
+        case 3: img.src = "RPS_resources/scissors-man.jpg";
+        break;
+    }
+    
     container.append(img);
 }
 function cleanImage() {
