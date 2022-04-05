@@ -1,106 +1,181 @@
-//1 is rock, 2 is paper, 3 is scissors
-
-//userInput
-
-let userInput;
-
-do {
-    do {
-        userInput = parseInt(prompt("1 - Rock\n2 - Paper\n3 - Scissors"));
-    } while (!(userInput === 1 || userInput === 2 || userInput === 3 ));
-    
-    
-    //bot generates a random number
-    const botChoice = Math.floor((Math.random() * 3) + 1);
-    console.log(userInput);
-    console.log(botChoice);
-    
-    print(userInput, botChoice);
-    check(userInput, botChoice);
-    
-    
-} while (ask());
-
-
-
-
-
-function print(userInput, botChoice) {
-//print user input
-switch(userInput) {
-    case 1: console.log("The user chose: Rock");
-    break;
-    case 2: console.log("The user chose: Paper");
-    break;
-    case 3: console.log("The user chose: Scissors");
-    break;
-}
-
-//print bot output
-
-switch(botChoice) {
-    case 1: console.log("The bot chose: Rock");
-    break;
-    case 2: console.log("The bot chose: Paper");
-    break;
-    case 3: console.log("The bot chose: Scissors");
-    break;
-}
-}
-
-
-
-
-//compare user Input and bot.
-//user chooses rock
-function check(userInput, botChoice) {
-
-
-if (userInput === 1) {
+function showBotChoice(botChoice) {
+    const container = document.querySelector('.choice-holder-2');
+    const removeh2 = document.querySelectorAll('.description');
+    removeh2.forEach((description) => {
+        description.remove();
+    })
+    const img = document.createElement('img');
+    img.setAttribute('class', 'image');
+    img.setAttribute('style', "height:200px; width:200px");
     switch(botChoice) {
-        case 1: console.log("It's a tie!");
+        case 1: img.src = "RPS_resources/rock-bot.jpg";
         break;
-        case 2: console.log("You lose!");
+        case 2: img.src = "RPS_resources/paper-bot.jpg";
         break;
-        case 3: console.log("You win!");
-        break;
-    }
-}
-//user chooses paper
-else if (userInput === 2) {
-    switch(botChoice) {
-        case 1: console.log("You win!");
-        break;
-        case 2: console.log("It's a tie!");
-        break;
-        case 3: console.log("You lose!");
+        case 3: img.src = "RPS_resources/scissors-bot.jpg";
         break;
     }
+    container.append(img);
 }
-//user chooses scissors
-else if (userInput === 3) {
-    switch(botChoice) {
-        case 1: console.log("You lose!");
+function botRandom() {
+    botChoice = Math.floor((Math.random() * 3) + 1);
+}
+function showPlayerChoice(playerChoice) {
+    const container = document.querySelector('.choice-holder-1');
+    const img = document.createElement('img');
+    img.setAttribute('class', 'image');
+    img.setAttribute('style', "height:200px; width:200px");
+    switch(playerChoice) {
+        case 1: img.src = "RPS_resources/rock-man.jpg";
         break;
-        case 2: console.log("You win!");
+        case 2: img.src = "RPS_resources/paper-man.jpg";
         break;
-        case 3: console.log("It's a tie!");
+        case 3: img.src = "RPS_resources/scissors-man.jpg";
         break;
     }
+    container.append(img);
 }
+function cleanImage() {
+    
+    const images = document.querySelectorAll('.image');
+    images.forEach((pic) => {
+        pic.remove();
+    })
 }
 
-function ask() {
-    let choice;
-    do {
-        choice = parseInt(prompt("Do you want to play again?\n\n1 - Yes\n2 - No"));
-    } while (!(choice === 1 || choice === 2));
 
-    if (choice === 1 ) {
-        return true;
+function compare(playerchoice, botChoice) {
+
+
+    if (playerchoice === 1) {
+        switch(botChoice) {
+            case 1: console.log("It's a tie!");
+            break;
+            case 2: console.log("You lose!");
+            botScore++;
+            break;
+            case 3: console.log("You win!");
+            playerScore++;
+            break;
+        }
     }
-    else {
-        return false;
+    //user chooses paper
+    else if (playerchoice === 2) {
+        switch(botChoice) {
+            case 1: console.log("You win!");
+            playerScore++;
+            break;
+            case 2: console.log("It's a tie!");
+            break;
+            case 3: console.log("You lose!");
+            botScore++;
+            break;
+        }
+    }
+    //user chooses scissors
+    else if (playerchoice === 3) {
+        switch(botChoice) {
+            case 1: console.log("You lose!");
+            botScore++;
+            break;
+            case 2: console.log("You win!");
+            playerScore++;
+            break;
+            case 3: console.log("It's a tie!");
+            break;
+        }
+    }
+    }
+function update(playerScore, botScore) {
+    const roundCounter = document.querySelector('.round-counter');
+    roundNum++;
+    roundCounter.textContent =  `ROUND ${roundNum}`
+    const pScore = document.querySelector('.score-counter-1');
+    const bScore = document.querySelector('.score-counter-2');
+    pScore.textContent = textContent = `Score: ${playerScore}`;
+    bScore.textContent = textContent = `Score: ${botScore}`;
+
+    if (playerScore == maxScore) {
+        roundCounter.textContent = "YOU WIN!!!";
+        disableButtons();
+    }
+    else if (botScore == maxScore) {
+        roundCounter.textContent = "YOU LOSE!!!";
+        disableButtons();
     }
 
 }
+
+function disableButtons() {
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        if (button.classList == 'rock') {
+           button.setAttribute('disabled', 'disabled');
+           button.setAttribute('class', 'disabled');
+        }
+        else if (button.classList == 'paper') {
+           
+            button.setAttribute('disabled', 'disabled');
+            button.setAttribute('class', 'disabled');
+        }
+        else if (button.classList == 'scissors') {
+            button.setAttribute('disabled', 'disabled');
+            button.setAttribute('class', 'disabled');
+        }
+    }) 
+}
+function setActionListener() {
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (button.classList == 'rock') {
+                console.log(1);
+                playerchoice = 1;
+                botRandom();
+                cleanImage();
+                showBotChoice(botChoice);
+                showPlayerChoice(playerchoice);
+                compare(playerchoice, botChoice);
+                update(playerScore, botScore);
+                
+            }
+            else if (button.classList == 'paper') {
+                console.log(2);
+                playerchoice = 2;
+                botRandom();
+                cleanImage();
+                showBotChoice(botChoice);
+                showPlayerChoice(playerchoice);
+                compare(playerchoice, botChoice);
+                update(playerScore, botScore);
+                
+            }
+            else if (button.classList == 'scissors') {
+                console.log(3);
+                playerchoice = 3;
+                botRandom();
+                cleanImage();
+                showBotChoice(botChoice);
+                showPlayerChoice(playerchoice);
+                compare(playerchoice, botChoice);    
+                update(playerScore, botScore);        
+            }
+            else if (button.classList == 'refresh') {
+                document.location.reload();
+            }
+        })
+    })
+}
+
+
+
+//start
+let botChoice;
+let playerchoice;
+let maxScore = 5;
+let roundNum = 0;
+let botScore = 0;
+let playerScore = 0;
+setActionListener();
+
+

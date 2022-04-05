@@ -7,16 +7,47 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>RPS</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <p>Open the browser console to play to game</p>
-        <script src="script.js" async defer></script>
+    <div class="container">
+     <div class="header">
+         <img src="RPS_resources/TITLE.jpg">
+     </div>
+     <div class="body">
+         <div class="man-side">
+             <img src="RPS_resources/man-icon.jpg">
+             <div class="choice-holder-1">
+                 <h2 class="description">The first to reach 5 wins!</h2>
+             </div>
+             <h3 class="score-counter-1">Score: 0</h3>
+         </div>
+         <div class="vs-column">
+             <div class="white-line"></div>
+             <h2 class="vs">VS</h2>
+             <div class="white-line"></div>
+         </div>
+         <div class="bot-side">
+            <img src="RPS_resources/bot-icon.jpg">
+            <div class="choice-holder-2">
+                <h2 class="description">Made by: roiceee. Enjoy!</h2>
+         </div>
+         <h3 class="score-counter-2">Score: 0</h3>
+     </div>
+     </div>
+     <div class="footer">
+         <h1 class="round-counter">PRESS ANY BUTTON BELOW TO START</h1>
+         <div class="buttons">
+             <button class="rock">ROCK</button>
+             <button class="paper">PAPER</button>
+             <button class="scissors">SCISSORS</button>
+         </div>
+         <button class="refresh">REFRESH</button>
+     </div>
+    </div>
     </body>
 </html>
