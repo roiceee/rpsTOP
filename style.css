@@ -139,3 +139,12 @@ button:hover {
 .playAgain :hover {
     transform: scale(1.2);
 }
+.footer-1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+p {
+    font-size: small;
+    margin-left: 32px;
+}
