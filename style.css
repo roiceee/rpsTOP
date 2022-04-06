@@ -100,7 +100,33 @@ h3 {
     font-size: medium;
 }
 
+.tally-1{
+    width: 120px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 4px;
+}
 
+.tally-2{
+    width: 120px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 4px;
+}
+
+
+.tally-1 > div {
+    width: 8px;
+    height: 8px;
+    background-color: rgb(129, 129, 129);
+    border-radius: 4px;
+}
+.tally-2 > div {
+    width: 8px;
+    height: 8px;
+    background-color: rgb(129, 129, 129);
+    border-radius: 4px;
+}
 
 
 
@@ -218,6 +244,13 @@ footer > a {
     .image1 {
         width: 150px;
     }
+    .tally-1{
+        width: 80px;
+       
+    }
+    .tally-2{
+        width: 80px;
+    }
 
 }
 @media only screen and (max-width: 425px){
@@ -241,6 +274,13 @@ footer > a {
     
     .vs {
         font-size: small;
+    }
+    .tally-1{
+        width: 80px;
+       
+    }
+    .tally-2{
+        width: 80px;
     }
 
  

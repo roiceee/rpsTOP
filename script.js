@@ -96,14 +96,15 @@ function compare(playerchoice, botChoice) {
         }
     }
     }
+
+
+
 function update(playerScore, botScore) {
     const roundCounter = document.querySelector('.round-counter');
     roundNum++;
     roundCounter.textContent =  `ROUND ${roundNum}`
-    const pScore = document.querySelector('.score-counter-1');
-    const bScore = document.querySelector('.score-counter-2');
-    pScore.textContent = textContent = `Score: ${playerScore}`;
-    bScore.textContent = textContent = `Score: ${botScore}`;
+
+    updateScoreBoard(playerScore, botScore);
 
     if (playerScore == maxScore) {
         roundCounter.textContent = "YOU WIN!!!";
@@ -116,6 +117,9 @@ function update(playerScore, botScore) {
    
 
 }
+
+
+
 function swapButtons() {
     const container = document.querySelector('.buttons');
     const groupOfButtons = document.querySelectorAll('button');
@@ -152,7 +156,7 @@ function restoreButtons() {
             button.setAttribute('style', 'display: block');
         }
     })
-    resetGame()
+    resetGame();
 }
 
 function resetGame() {
@@ -161,13 +165,11 @@ function resetGame() {
    roundNum = 0;
    botScore = 0;
    playerScore = 0;
+   clearScoreBoard();
 
     const roundCounter = document.querySelector('.round-counter');
     roundCounter.textContent =  `PRESS ANY BUTTON BELOW TO START`
-    const pScore = document.querySelector('.score-counter-1');
-    const bScore = document.querySelector('.score-counter-2');
-    pScore.textContent = textContent = `Score: ${playerScore}`;
-    bScore.textContent = textContent = `Score: ${botScore}`;
+   
 
     const images = document.querySelectorAll('.image');
 
@@ -178,12 +180,54 @@ function resetGame() {
     removeh2.forEach((description) => {
         description.setAttribute('style', 'display: block');
     })
-
-    
-
-    
-
    
+}
+
+function updateScoreBoard(playerScore, botScore) {
+    if (playerScore == 0) {
+        return;
+    }
+    else {
+        for (let i = 0; i < playerScore; i++) {
+            const num = arr1[i];
+            const div = document.querySelector(`.score${num}`);
+            div.setAttribute('style', 'background-color: green');
+        }
+    }
+    if (botScore == 0) {
+        return;
+    }
+    else {
+        for (let i = 0; i < botScore; i++) {
+            const num = arr2[i];
+            const div = document.querySelector(`.score${num}`);
+            div.setAttribute('style', 'background-color: green');
+        }
+    }
+}
+
+function clearScoreBoard() {
+    for (let i = 1; i<=10; i++) {
+        const div = document.querySelector(`.score${i}`);
+        div.setAttribute('style', 'background-color: rgb(129, 129, 129)');
+    }
+}
+
+function generateScoreBoard() {
+    const container1 = document.querySelector('.tally-1');
+    const container2 = document.querySelector('.tally-2');
+
+    for (let i = 1; i<=5; i++) {
+        const div1 = document.createElement('div');
+        div1.setAttribute('class', `score${i}`);
+        container1.append(div1);
+    }
+    for (let i = 6; i<=10; i++) {
+        const div1 = document.createElement('div');
+        div1.setAttribute('class', `score${i}`);
+        container2.append(div1);
+    }
+
 }
 
 /*
@@ -252,12 +296,14 @@ function setActionListener() {
 
 
 //start
+
 let botChoice;
 let playerchoice;
 let maxScore = 5;
 let roundNum = 0;
 let botScore = 0;
 let playerScore = 0;
+const arr1 = [1, 2 , 3, 4, 5];
+const arr2 = [6, 7 , 8, 9, 10];
 setActionListener();
-
-
+generateScoreBoard();
