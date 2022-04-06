@@ -2,7 +2,7 @@ function showBotChoice(botChoice) {
     const container = document.querySelector('.choice-holder-2');
     const removeh2 = document.querySelectorAll('.description');
     removeh2.forEach((description) => {
-        description.remove();
+        description.setAttribute('style', 'display: none');
     })
     const img = document.createElement('img');
     img.setAttribute('class', 'image');
@@ -107,15 +107,84 @@ function update(playerScore, botScore) {
 
     if (playerScore == maxScore) {
         roundCounter.textContent = "YOU WIN!!!";
-        disableButtons();
+        swapButtons();
     }
     else if (botScore == maxScore) {
         roundCounter.textContent = "YOU LOSE!!!";
-        disableButtons();
+        swapButtons();
     }
+   
 
 }
+function swapButtons() {
+    const container = document.querySelector('.buttons');
+    const groupOfButtons = document.querySelectorAll('button');
 
+    groupOfButtons.forEach((button) => {
+        if (button.classList == 'refresh') {
+            return;
+        }
+        else {
+            button.setAttribute('style', 'display: none');
+        }
+    })
+    //create another button
+    const playAgainButton = document.createElement('button');
+    playAgainButton.setAttribute('class', 'playAgain')
+    playAgainButton.textContent = "PLAY AGAIN";
+    container.append(playAgainButton);
+    playAgainButton.addEventListener('click', () => {
+    restoreButtons();
+    })
+}
+
+function restoreButtons() {
+    const buttons = document.querySelectorAll('button') 
+
+    buttons.forEach((button) => {
+        if (button.classList == 'refresh') {
+            return;
+        }
+        else if (button.classList == 'playAgain') {
+            button.setAttribute('style', 'display: none');
+        }
+        else {
+            button.setAttribute('style', 'display: block');
+        }
+    })
+    resetGame()
+}
+
+function resetGame() {
+    //code to reset the game
+   maxScore = 5;
+   roundNum = 0;
+   botScore = 0;
+   playerScore = 0;
+
+    const roundCounter = document.querySelector('.round-counter');
+    roundCounter.textContent =  `PRESS ANY BUTTON BELOW TO START`
+    const pScore = document.querySelector('.score-counter-1');
+    const bScore = document.querySelector('.score-counter-2');
+    pScore.textContent = textContent = `Score: ${playerScore}`;
+    bScore.textContent = textContent = `Score: ${botScore}`;
+
+    const images = document.querySelectorAll('.image');
+
+    images.forEach((image) => {
+        image.setAttribute('style', 'display: none');
+    })
+    const removeh2 = document.querySelectorAll('.description');
+    removeh2.forEach((description) => {
+        description.setAttribute('style', 'display: block');
+    })
+
+    
+
+   
+}
+
+/*
 function disableButtons() {
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
@@ -134,6 +203,7 @@ function disableButtons() {
         }
     }) 
 }
+*/
 function setActionListener() {
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
