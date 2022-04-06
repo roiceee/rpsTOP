@@ -1,6 +1,6 @@
 function showBotChoice(botChoice) {
     const container = document.querySelector('.choice-holder-2');
-    const removeh2 = document.querySelectorAll('.description');
+    const removeh2 = document.querySelectorAll('.image1');
     removeh2.forEach((description) => {
         description.setAttribute('style', 'display: none');
     })
@@ -174,10 +174,12 @@ function resetGame() {
     images.forEach((image) => {
         image.setAttribute('style', 'display: none');
     })
-    const removeh2 = document.querySelectorAll('.description');
+    const removeh2 = document.querySelectorAll('.image1');
     removeh2.forEach((description) => {
         description.setAttribute('style', 'display: block');
     })
+
+    
 
     
 
