@@ -15,6 +15,7 @@ body {
 
 .container {
     margin: auto;
+    height: auto;
     background-color: #1E1E1E;
     padding: 16px;
     border-radius: 16px;
@@ -122,16 +123,16 @@ button {
     color: white;
     font-size: medium;
 }
-button:hover {
+button:active {
     transform: scale(1.1);
 }
-.rock:hover {
+.rock:active {
     box-shadow: 0 0 0 1px #87029d;
 }
-.paper:hover {
+.paper:active {
     box-shadow: 0 0 0 1px #006f77;
 }
-.scissors:hover {
+.scissors:active {
     box-shadow: 0 0 0 1px #2d750b;
 }
 .rock {
@@ -201,9 +202,7 @@ footer > a {
 
 @media only screen and (max-width: 1200px){
     /*Tablets [601px -> 1200px]*/
-    button.restart:hover {
-        transform: scale(1.0);
-      }
+ 
 }
 @media only screen and (max-width: 600px){
 	.choice-holder-1{
@@ -220,9 +219,7 @@ footer > a {
     .image1 {
         width: 150px;
     }
-    button.restart:hover {
-        transform: scale(1.0);
-      }
+
 }
 @media only screen and (max-width: 425px){
 	.image {
@@ -246,7 +243,17 @@ footer > a {
     .vs {
         font-size: small;
     }
-    button.restart:hover {
-        transform: scale(1.0);
-      }
+
+ 
+    }
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
 }
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
+
