@@ -180,9 +180,8 @@ p {
 }
 
 footer {
-    width: 100%;
-    max-width: 800px;
-    position: absolute;
+  
+    position: fixed;
     margin-bottom: 4px;
     bottom: 0;
 }
