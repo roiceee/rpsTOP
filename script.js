@@ -11,11 +11,11 @@ function showBotChoice(botChoice) {
     img.setAttribute('style', 'display: block');
    },250) 
    switch(botChoice) {
-    case 1: img.src = "RPS_resources/rock-bot.jpg";
+    case 1: img.src = "RPS_resource/rock-bot.jpg";
     break;
-    case 2: img.src = "RPS_resources/paper-bot.jpg";
+    case 2: img.src = "RPS_resource/paper-bot.jpg";
     break;
-    case 3: img.src = "RPS_resources/scissors-bot.jpg";
+    case 3: img.src = "RPS_resource/scissors-bot.jpg";
     break;
 }
         
@@ -35,11 +35,11 @@ function showPlayerChoice(playerChoice) {
         img.setAttribute('style', 'display: block');
     }, 250);
     switch(playerChoice) {
-        case 1: img.src = "RPS_resources/rock-man.jpg";
+        case 1: img.src = "RPS_resource/rock-man.jpg";
         break;
-        case 2: img.src = "RPS_resources/paper-man.jpg";
+        case 2: img.src = "RPS_resource/paper-man.jpg";
         break;
-        case 3: img.src = "RPS_resources/scissors-man.jpg";
+        case 3: img.src = "RPS_resource/scissors-man.jpg";
         break;
     }
     
