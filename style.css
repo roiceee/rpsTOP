@@ -24,8 +24,9 @@ body {
     display: flex;
     flex-flow: column;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 15vh; 
 }
+
 
 .container > div{
     width: 100%;
@@ -267,12 +268,12 @@ footer > a {
         width: 125px;
     }
     .choice-holder-1{
-        height: 150px;
-        width: 150px;
+        height: 125px;
+        width: 125px;
     }
     .choice-holder-2{
-        height: 150px;
-        width: 150px;
+        height: 125px;
+        width: 125px;
     }
     .round-counter {
         font-size: medium;
@@ -288,9 +289,49 @@ footer > a {
     .tally-2{
         width: 80px;
     }
-
- 
     }
+
+    @media only screen and (max-width: 330px){
+        .container {
+            margin-top: 15vh;
+        }
+        .image {
+            width: 100px; 
+        }
+        .image1 {
+            width: 100px;
+        }
+        .choice-holder-1{
+            height: 100px;
+            width: 100px;
+        }
+        .choice-holder-2{
+            height: 100px;
+            width: 100px;
+        }
+        .round-counter {
+            font-size: medium;
+        }
+        
+        .vs {
+            font-size: small;
+        }
+        .tally-1{
+            width: 80px;
+           
+        }
+        .tally-2{
+            width: 80px;
+        }
+        button {
+            transform: scale(0.9);
+        }
+        .refresh {
+            display: none;
+        }
+        }
+
+
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
