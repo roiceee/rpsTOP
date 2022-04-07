@@ -184,26 +184,20 @@ function resetGame() {
 }
 
 function updateScoreBoard(playerScore, botScore) {
-    if (playerScore == 0) {
-        return;
-    }
-    else {
+  
         for (let i = 0; i < playerScore; i++) {
             const num = arr1[i];
             const div = document.querySelector(`.score${num}`);
             div.setAttribute('style', 'background-color: green');
         }
-    }
-    if (botScore == 0) {
-        return;
-    }
-    else {
+    
+  
         for (let i = 0; i < botScore; i++) {
             const num = arr2[i];
             const div = document.querySelector(`.score${num}`);
             div.setAttribute('style', 'background-color: green');
         }
-    }
+    
 }
 
 function clearScoreBoard() {
