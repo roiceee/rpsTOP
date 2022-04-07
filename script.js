@@ -101,6 +101,8 @@ function compare(playerchoice, botChoice) {
 
 function update(playerScore, botScore) {
     const roundCounter = document.querySelector('.round-counter');
+    roundCounter.setAttribute('style', 'animation: disabled');
+    roundCounter.setAttribute('style', '-webkit-animation: disabled');
     roundNum++;
     roundCounter.textContent =  `ROUND ${roundNum}`
 
@@ -166,10 +168,12 @@ function resetGame() {
    botScore = 0;
    playerScore = 0;
    clearScoreBoard();
+   
 
     const roundCounter = document.querySelector('.round-counter');
     roundCounter.textContent =  `PRESS ANY BUTTON BELOW TO START`
-   
+    roundCounter.setAttribute('style', 'animation: blink-animation 1s steps(5, start) infinite;');
+    roundCounter.setAttribute('style', '-webkit-animation: blink-animation 1s steps(5, start) infinite;');
 
     const images = document.querySelectorAll('.image');
 
