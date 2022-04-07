@@ -186,15 +186,15 @@ function resetGame() {
 function updateScoreBoard(playerScore, botScore) {
   
         for (let i = 0; i < playerScore; i++) {
-            const num = arr1[i];
-            const div = document.querySelector(`.score${num}`);
+           
+            const div = document.querySelector(`.score${i + 1}`);
             div.setAttribute('style', 'background-color: green');
         }
     
   
         for (let i = 0; i < botScore; i++) {
-            const num = arr2[i];
-            const div = document.querySelector(`.score${num}`);
+            
+            const div = document.querySelector(`.score${i + 6}`);
             div.setAttribute('style', 'background-color: green');
         }
     
@@ -297,7 +297,5 @@ let maxScore = 5;
 let roundNum = 0;
 let botScore = 0;
 let playerScore = 0;
-const arr1 = [1, 2 , 3, 4, 5];
-const arr2 = [6, 7 , 8, 9, 10];
 setActionListener();
 generateScoreBoard();
