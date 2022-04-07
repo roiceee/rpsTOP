@@ -230,6 +230,9 @@ footer > a {
  
 }
 @media only screen and (max-width: 600px){
+    .container {
+        margin-top: 15vh;
+    }
 	.choice-holder-1{
         height: 150px;
         width: 150px;
@@ -254,6 +257,9 @@ footer > a {
 
 }
 @media only screen and (max-width: 425px){
+    .container {
+        margin-top: 15vh;
+    }
 	.image {
         width: 125px; 
     }
@@ -261,12 +267,12 @@ footer > a {
         width: 125px;
     }
     .choice-holder-1{
-        height: 125px;
-        width: 125px;
+        height: 150px;
+        width: 150px;
     }
     .choice-holder-2{
-        height: 125px;
-        width: 125px;
+        height: 150px;
+        width: 150px;
     }
     .round-counter {
         font-size: medium;
