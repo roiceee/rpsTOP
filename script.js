@@ -168,7 +168,7 @@ function resetGame() {
    botScore = 0;
    playerScore = 0;
    clearScoreBoard();
-   
+   audio.load();
 
     const roundCounter = document.querySelector('.round-counter');
     roundCounter.textContent =  `PRESS ANY BUTTON BELOW TO START`
@@ -225,64 +225,35 @@ function generateScoreBoard() {
         div1.setAttribute('class', `score${i}`);
         container2.append(div1);
     }
-
 }
 
-/*
-function disableButtons() {
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => {
-        if (button.classList == 'rock') {
-           button.setAttribute('disabled', 'disabled');
-           button.setAttribute('class', 'disabled');
-        }
-        else if (button.classList == 'paper') {
-           
-            button.setAttribute('disabled', 'disabled');
-            button.setAttribute('class', 'disabled');
-        }
-        else if (button.classList == 'scissors') {
-            button.setAttribute('disabled', 'disabled');
-            button.setAttribute('class', 'disabled');
-        }
-    }) 
+
+function processInput(playerchoice) {
+    audio.play();
+    botRandom();
+    cleanImage();
+    showBotChoice(botChoice);
+    showPlayerChoice(playerchoice);
+    compare(playerchoice, botChoice);
+    update(playerScore, botScore);
 }
-*/
+
 function setActionListener() {
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
             if (button.classList == 'rock') {
-                console.log(1);
                 playerchoice = 1;
-                botRandom();
-                cleanImage();
-                showBotChoice(botChoice);
-                showPlayerChoice(playerchoice);
-                compare(playerchoice, botChoice);
-                update(playerScore, botScore);
-                
+               processInput(playerchoice);
             }
             else if (button.classList == 'paper') {
-                console.log(2);
                 playerchoice = 2;
                 botRandom();
-                cleanImage();
-                showBotChoice(botChoice);
-                showPlayerChoice(playerchoice);
-                compare(playerchoice, botChoice);
-                update(playerScore, botScore);
-                
+                processInput(playerchoice);
             }
             else if (button.classList == 'scissors') {
-                console.log(3);
                 playerchoice = 3;
-                botRandom();
-                cleanImage();
-                showBotChoice(botChoice);
-                showPlayerChoice(playerchoice);
-                compare(playerchoice, botChoice);    
-                update(playerScore, botScore);        
+                processInput(playerchoice);
             }
             else if (button.classList == 'refresh') {
                 document.location.reload();
@@ -301,5 +272,9 @@ let maxScore = 5;
 let roundNum = 0;
 let botScore = 0;
 let playerScore = 0;
+const audio = new Audio("RPS_Resource/music.mp3");
 setActionListener();
 generateScoreBoard();
+audioInitiator();
+
+
